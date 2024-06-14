@@ -23,14 +23,14 @@ export class GoalEntity extends EntityRelationalHelper implements Goal {
   title: string;
 
   @Column({ length: 255, nullable: true })
-  description?: string;
+  description?: string | null;
 
   @Column({ type: Date, nullable: true })
   startDate: Date;
 
   @Index()
   @Column({ type: Date, nullable: true })
-  endDate: Date | null;
+  endDate?: Date | null;
 
   @ManyToOne(() => UserEntity, {
     eager: true,
